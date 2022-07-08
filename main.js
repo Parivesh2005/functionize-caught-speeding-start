@@ -10,16 +10,19 @@ let outputSpan = document.getElementById("output");
 determineBtn.addEventListener("click", determineBtnClicked);
 
 function determineBtnClicked() {
-  // Input
+  // Input and Output
   let driverSpeed = +driverSpeedInput.value;
   let speedLimit = +speedLimitInput.value;
+  outputSpan.innerHTML = determineTicket(driverSpeed, speedLimit);
+}
 
-  // Process & Output
-  if (driverSpeed >= speedLimit + 20) {
-    outputSpan.innerHTML = "BIG TICKET";
-  } else if (driverSpeed > speedLimit) {
-    outputSpan.innerHTML = "SMALL TICKET";
-  } else {
-    outputSpan.innerHTML = "NO TICKET";
-  }
+function determineTicket(driverSpeed, speedLimit){
+// Process & Determine Ticket
+if (driverSpeed >= speedLimit + 20) {
+  return "BIG TICKET";
+} else if (driverSpeed > speedLimit) {
+  return "SMALL TICKET";
+} else {
+  return "NO TICKET";
+}
 }
